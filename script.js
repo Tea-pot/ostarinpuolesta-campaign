@@ -3,7 +3,7 @@
  * -------------------------- */
 
 // The date you want to count down to
-var targetDate = new Date("2024/12/09 59:59:59 GMT+0200");   
+var targetDate = new Date("2024/12/09 23:59:59 GMT+0200");   
 
 // Other date related variables
 var days;
