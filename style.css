@@ -1,0 +1,81 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --font_family: Tahoma, Verdana, sans-serif;
+}
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.squarespace-cdn.com/content/v1/60be1ec3fbdd3c068cde7011/1626768360004-F9XRYX93MBR6IA6724HJ/kulosaarenostari.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  font-family: var(--font_family);
+}
+.hero-button {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.copy{
+  padding: 1rem;
+  margin: 3rem auto 0 auto;
+  font-family: var(--font_family);
+}
+.copy-upper {
+  text-transform: uppercase;
+}
+.counter-container {
+  background-color: #f2f2f2;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+ul#countdown {
+  /* position: relative;
+  top: 50%; */
+  /* transform: translateY(-50%); */
+  width: 50%;
+  margin: auto auto 0 auto;
+  padding: 15px 0 20px 0;
+  color: #fff;
+  border: 1px solid #adafb2;
+  border-width: 1px 0;
+  overflow: hidden;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+}
+ul#countdown li {
+  margin: 0 -3px 0 0;
+  padding: 0;
+  display: inline-block;
+  width: 25%;
+  font-size: 72px;
+  font-size: 6vw;
+  text-align: center;
+}
+ul#countdown li .label {
+  color: #adafb2;
+  font-size: 18px;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+}
