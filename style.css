@@ -6,6 +6,11 @@
 body, html {
     height: 100%;
 }
+.page-content{
+  max-width: 1200px;
+  width: 100%;
+  margin:0 auto 0 auto;
+}
 
 /* The hero image */
 .hero-image {
