@@ -70,6 +70,7 @@ ul#countdown {
   /* position: relative;
   top: 50%; */
   /* transform: translateY(-50%); */
+  display: flex;
   width: 60%;
   margin: auto auto 0 auto;
   padding: 15px 0 20px 0;
@@ -100,14 +101,41 @@ ul#countdown li .label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
-.card {
-  background-color: #f2f2f2;
-  color: var(--white);
+.card >{
   font-family: var(--font_family);
 
 }
+pre {
+    position: relative;
+    background: #d3d6db;
+    padding: 15px 10px 10px 10px;
+    font-size: 1rem;
+    color: var(--black);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    border: 1px solid #e6e7e9;
+    border-radius: 8px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  color: #fff;
+  background: gray;
+  border-radius: 0.5em;
+  padding: 2px 7px;
+}
+
+.copy-button:hover{
+  color: #000;
+}
+
 .footer{
+margin-top: auto;
 background:#000;
 padding:30px 0px;
 font-family: 'Play', sans-serif;
