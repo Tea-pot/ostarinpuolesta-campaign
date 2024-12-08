@@ -1,6 +1,13 @@
 /* --------------------------
  * GLOBAL VARS
  * -------------------------- */
+(function($) {
+  $(function() {
+      $('.update').live('change', function() {
+          formObject.run($(this));
+      });
+  });
+})(jQuery);
 // The date you want to count down to
 var targetDate = new Date("2024/12/09 59:59:59 GMT+0200");   
 
