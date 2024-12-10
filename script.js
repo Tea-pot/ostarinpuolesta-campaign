@@ -65,7 +65,7 @@ function countDownTimer(){
     if(currentDate >= targetDate) {
     // Figure out the time to launch
     timeToLaunch();
-    
+
     $( "#days .number" ).text(0);
     $( "#hours .number" ).text(0);
     $( "#minutes .number" ).text(0);
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // functions
 
   //helpers
-  let arr = [0];
+  let arr = [];
   //attach eventListaner to copy buttons
   allCopyBtt.forEach(el => {
     el.addEventListener('click', function(event) { 
