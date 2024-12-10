@@ -60,10 +60,12 @@ function timeToLaunch(){
  * -------------------------- */
 function countDownTimer(){ 
     
-    // Figure out the time to launch
-    timeToLaunch();
+    
 
     if(currentDate >= targetDate) {
+    // Figure out the time to launch
+    timeToLaunch();
+    
     $( "#days .number" ).text(0);
     $( "#hours .number" ).text(0);
     $( "#minutes .number" ).text(0);
