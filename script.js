@@ -3,7 +3,10 @@
  * -------------------------- */
 
 // The date you want to count down to
-var targetDate = new Date("2024/12/09 23:59:59 GMT+0200");   
+var targetDate = new Date("2024/12/09 23:59:59 GMT+0200");
+
+// Get the current date
+var currentDate = new Date();
 
 // Other date related variables
 var days;
@@ -59,15 +62,28 @@ function countDownTimer(){
     
     // Figure out the time to launch
     timeToLaunch();
-    
+
+    if(currentDate >= targetDate) {
+    $( "#days .number" ).text(0);
+    $( "#hours .number" ).text(0);
+    $( "#minutes .number" ).text(0);
+    $( "#seconds .number" ).text(0);
+      
+    }else {
     // Write to countdown component
     $( "#days .number" ).text(days);
     $( "#hours .number" ).text(hrs);
     $( "#minutes .number" ).text(min);
     $( "#seconds .number" ).text(sec);
+
+    }
+    
+    
     
     // Repeat the check every second
     setTimeout(countDownTimer,1000);
+
+
 }
 
 /* --------------------------
@@ -88,50 +104,68 @@ function numberTransition(id, endPoint, transitionDuration, transitionEase){
    }); 
 };
 
-const preTag = document.getElementById("myPreTag");
+const preTag = document.querySelectorAll("pre");
+const copyButton = document.querySelector(".copy-button");
+const allCopyBtt = document.querySelectorAll(".copy-button");
 
-// // Create a copy button element
-// const copyButton = document.createElement("span");
-// copyButton.innerText = "Copy";
-// copyButton.classList.add("copy-button");
+document.addEventListener('DOMContentLoaded', function() {
+// functions
 
-// // Append the copy button to the <pre> tag
-// preTag.appendChild(copyButton);
+  //helpers
+  let arr = [0];
+  //attach eventListaner to copy buttons
+  allCopyBtt.forEach(el => {
+    el.addEventListener('click', function(event) { 
+      event.stopPropagation();      
+      console.log(event.target.id);
+      arr[0] = event.target.id;
+      console.log(arr[0]);
+      let item = parseInt(arr[0], 10);
+      console.log(item);
+      console.log(typeof(item))
 
-// // Add click event listener to the copy button
-// copyButton.addEventListener("click", () => {
-//   // Hide the copy button temporarily
-//   copyButton.style.display = "none";
+  // Create a range and select the text inside the <pre> tag
+  const range = document.createRange();
+  let referenceNode = document.getElementsByTagName("pre").item(item);
+  range.selectNode(referenceNode);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
 
-//   // Create a range and select the text inside the <pre> tag
-//   const range = document.createRange();
-//   range.selectNode(preTag);
-//   window.getSelection().removeAllRanges();
-//   window.getSelection().addRange(range);
-
-//   try {
-//     // Copy the selected text to the clipboard
-//     document.execCommand("copy");
+  if ('clipboard' in navigator) { 
+    console.log('Clipboard API is supported!'); 
+  } else {
+    console.log('Clipboard API is not supported!');
+  }
   
-//     // Alert the user that the text has been copied
-//     copyButton.innerText = "Copied!";
-//     setTimeout(function(){
-//       copyButton.innerText = "Copy";
-//     }, 2000);
-//   } catch (err) {
-//     console.error("Unable to copy text:", err);
-//   } finally {
-//     // Show the copy button again
-//     copyButton.style.display = "inline";
-  
-//     // Deselect the text
-//     window.getSelection().removeAllRanges();
-//   }
-// });
 
-document.querySelectorAll('.copy-button').forEach(item => {
-  item.addEventListener('click', function (e) {
-    console.log(this.className); // logs the className of my_element
-    console.log(e.currentTarget === this); // logs `true`
-  })
-})
+  // const writeTextInClipboardAsync = async () => {
+    async function copyToClpbrd() {
+    try {
+      await navigator.clipboard.writeText(range);
+      console.log('Text copied to clipboard');
+    //   // Alert the user that the text has been copied
+    //   copyButton.innerText = "Copied!";
+    //   setTimeout(function(){
+    //   copyButton.innerText = "&#xe14d;";
+    // }, 2000);    
+    } catch (error) {
+      console.error('Failed to copy text: ', error);
+    } 
+    finally {
+      // Show the copy button again
+      // copyButton.style.display = "flex";
+    
+      // Deselect the text
+      window.getSelection().removeAllRanges();
+    }
+  };
+
+
+      
+    });
+  });
+
+
+
+//end DOMContentLoad function  
+});

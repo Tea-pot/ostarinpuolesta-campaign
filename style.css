@@ -6,10 +6,16 @@
 body, html {
     height: 100%;
 }
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+
+
 .page-content{
   max-width: 1200px;
   width: 100%;
-  margin:0 auto 0 auto;
+  margin:0 auto auto auto;
 }
 
 /* The hero image */
@@ -104,39 +110,75 @@ ul#countdown li .label {
 
 .cards-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  min-height:100%;
+  flex-wrap: nowrap;
 }
 .card >{
   font-family: var(--font_family);
+}
+.card {
+  max-width: 100%;
+  width: 48%;
+  height: 255px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: .5rem .75rem .75rem .75rem;
+  background: #d3d6db;
+  border: 1px solid #e6e7e9;
+  border-radius: 8px;
+  margin: 1rem 0 1rem 0;
+}
+@media (max-width:800px){
+  .cards-wrapper {
+    flex-direction: column;
+    justify-content: center;
 
+
+  }
+  .card {
+    height: 100%;
+    width: 98%;
+    padding: 0.5rem;
+  }
 }
 pre {
-    position: relative;
-    background: #d3d6db;
-    padding: 15px 10px 10px 10px;
+    
     font-size: 1rem;
     color: var(--black);
     word-wrap: break-word;
     white-space: pre-wrap;
-    border: 1px solid #e6e7e9;
-    border-radius: 8px;
 }
 
 .copy-button {
-  position: absolute;
+  
+  align-self: flex-end;
   top: 5px;
   right: 10px;
   cursor: pointer;
   color: #fff;
-  background: gray;
-  border-radius: 0.5em;
+  /* background: #b5b8bd; */
+  border-radius: 0.25rem;
   padding: 2px 7px;
+  font-family: var(--font_family);
+  font-weight: 350;
+  font-size: small;
 }
 
 .copy-button:hover{
   color: #000;
+}
+
+
+footer{
+  margin-top: auto;
+  background:#000;
+  width: 100vw;
 }
 
 .footer{
