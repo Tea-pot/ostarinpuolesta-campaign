@@ -104,7 +104,6 @@ function numberTransition(id, endPoint, transitionDuration, transitionEase){
    }); 
 };
 
-const preTag = document.querySelectorAll("pre");
 const copyButton = document.querySelector(".copy-button");
 const allCopyBtt = document.querySelectorAll(".copy-button");
 
