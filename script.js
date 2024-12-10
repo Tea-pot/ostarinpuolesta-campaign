@@ -116,12 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
   allCopyBtt.forEach(el => {
     el.addEventListener('click', function(event) { 
       event.stopPropagation();      
-      console.log(event.target.id);
+      // console.log(event.target.id);
       arr[0] = event.target.id;
       console.log(arr[0]);
       let item = parseInt(arr[0], 10);
-      console.log(item);
-      console.log(typeof(item))
+      // console.log(item);
+      // console.log(typeof(item))
 
   // Create a range and select the text inside the <pre> tag
   const range = document.createRange();
@@ -130,37 +130,18 @@ document.addEventListener('DOMContentLoaded', function() {
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(range);
 
-  if ('clipboard' in navigator) { 
-    console.log('Clipboard API is supported!'); 
-  } else {
-    console.log('Clipboard API is not supported!');
-  }
   
-
-  // const writeTextInClipboardAsync = async () => {
-    async function copyToClpbrd() {
     try {
-      await navigator.clipboard.writeText(range);
-      console.log('Text copied to clipboard');
-    //   // Alert the user that the text has been copied
-    //   copyButton.innerText = "Copied!";
-    //   setTimeout(function(){
-    //   copyButton.innerText = "&#xe14d;";
-    // }, 2000);    
+      document.execCommand("copy");   
     } catch (error) {
       console.error('Failed to copy text: ', error);
     } 
     finally {
-      // Show the copy button again
-      // copyButton.style.display = "flex";
     
       // Deselect the text
       window.getSelection().removeAllRanges();
     }
-  };
-
-
-      
+  
     });
   });
 
